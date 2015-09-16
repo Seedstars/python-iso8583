@@ -1,0 +1,74 @@
+Add:
+
+	- create a unsetBit(bitNumber) method to delete a value of a bit inside the object
+	
+	- create a ISO8583Util Class that give some util method like:
+		- intToBCD
+		- BCDToInt
+		- getTimeGMT (to bit 12)
+		- GetDateType (to bit 13)
+
+Fix:
+
+	- ...
+
+Think about:
+
+	- Improve ... improve ... improve 
+	
+	- Add support to "BCD" sizes in LL LLL types.
+		ASCII LL size and ASCII value inside '123456' ->  '06123456'
+		BCD LL size and  ASCII value inside '123456' -> '\x06' + '123456'
+		ASCII LLL size and ASCII value inside '123456' ->  '006123456'
+		BCD LLL size and  ASCII value inside '123456' -> '\x00\x06' + '123456'
+		
+	- Improve support to "binary" data
+		i.setBit(3,'\x00\x01\x02')
+		
+	- Make sense setBit(1,'xxx') ?	
+		Maybe the dialet need to have the 2º bitmap inside with no value because it's automatic that 2º be present when bit large than 64 is inside... 
+		But .. Today work :) by the way ... xxx is ignored...
+		
+	- It's important separate the size and the value of LL and LLL types?
+		Example, bit 2 is LL:
+			Today -> i.setBit(2,'123') -> i.getBit(2) -> 03123
+			Think -> i.setBit(2,'123') -> i.getBit(2) -> 123
+		It was build in this way because the size can be important in some cases, but we can determine the size len(i.getBit(2)) ...
+		If the partner send a ISO8583 with wrong size?
+		
+	- Make a XML builder that convert a ISO8583 to a XML object and a XML to ISO8583...
+		<ISO8583>
+			<mti>0200</mti>
+			<bitmap>600000000000000</bitmap>
+			<bits>
+				<bit>
+					<number>2</number>
+					<value>03123</value>
+					<type>LL</type>
+				</bit>
+				<bit>
+					<number>3</number>
+					<value>300000</value>
+					<type>N</type>
+				</bit>
+			</bits>
+		</ISO8583>
+		
+	- Use log4Python to improve debug information
+	
+	- Support Python V3
+	
+	- Improve errors:
+		- validate values
+		
+	- Improve the package name / structure
+		- today: FROM ISO8583.ISO8583 import ISO8583
+		- future: FROM iso8583 import ISO8583 
+		
+	- Create more examples
+
+	- Create benchmarks with JPOS
+	
+	- Support EBCDIC ...
+	
+	- ...

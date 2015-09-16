@@ -1,0 +1,32 @@
+(C) Copyright 2009 Igor V. Custodio
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+========================================================================
+
+To install is very simple:
+
+1) Download the package
+2) Un-compress it
+3) Go to the folder where setup.py is
+4) Build the package with the command: "python setup.py build"
+5) Install with the command: "python setup.py install"
+6) That's it!
+7) Enjoy, read, learn the examples in the "examples" directory.
+
+
+========================================================================
+
+If you need more information about how to build a package, read 
+http://docs.python.org/distutils/sourcedist.html
